@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Tienda</title>
         <link rel="stylesheet" type="text/css" href="Estilos/styles6.css">
 	<link rel="stylesheet" type="text/css" href="Estilos/validaciones.css">
         <script type="text/javascript" src="Jquery/jquery-1.12.1.min.js"></script>
@@ -11,15 +11,14 @@
     </head>
     <body BACKGROUND="Imagenes/Login/ImgFondo.jpg">
         <div class="container" id="loginDiv">
-            <form method="post">
+            <form id="btnLgn">
                 <label for="inputNombre" class="label">Nombre:</label>
                 <input type="text" id="inputNombre" class="input expantion" placeholder="prueba" required /><br/>
                 <label for="inputPass" class="label">Password:</label><br/>
                 <input type="password" id="inputPass" class="input expantion" placeholder="Password" required /><br/>
                 <input id="inputCheck" type="checkbox" class="checkbox">
                 <label for="inputCheck" class="label">Recordar mis datos</label><br/><br/>
-                <!--<input type="button" class="btnLogin" value="Presiona Aqui" id="btnLgn" />-->
-                <button class="btnLogin" id="btnLgn"> Presiona Aqui</button>
+                <button type="submit" class="btnLogin"> Presiona Aqui</button>
             </form>
         </div>
     </body>

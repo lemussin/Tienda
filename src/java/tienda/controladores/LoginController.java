@@ -3,17 +3,22 @@ package tienda.controladores;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.AsyncContext;
+import tienda.BLL.LoginModel;
+import tienda.Entidades.Usuario;
 
 /**
  *
  * @author Eduardo Lemus Zavala
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
+@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"}, asyncSupported = true)
 public class LoginController extends HttpServlet {
 
     /**
@@ -25,19 +30,18 @@ public class LoginController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String seleccion = request.getParameter("seleccion");
         Gson json= new Gson();
+        LoginModel lm = new LoginModel();
         switch(seleccion){
             case "inicioSesion":
                 String nombre = request.getParameter("nombre");
                 String pass = request.getParameter("pass");
-                String prueba = "Hola escribiste los datos "+nombre+" y "+pass;
-                System.out.println("LLego");
-                out.print(json.toJson(prueba));
+                Usuario usuario = lm.inicioSesion(nombre,pass);
+                out.print(json.toJson(usuario));
                 break;
         }
     }
@@ -66,9 +70,24 @@ public class LoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        request.setAttribute("org.apache.catalina.ASYNC_SUPPORTED", true);
+        System.out.println("Hilo Principal:" + Thread.currentThread().getName());
+        AsyncContext contextoAsincrono = request.startAsync(request, response);
+        contextoAsincrono.start(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                try {
+                    System.out.println("Hilo Tarea Asincrona Antes :"+ Thread.currentThread().getName());
+                    processRequest(request, response);
+                    contextoAsincrono.complete();
+                } catch (ServletException | IOException ex) 
+                {Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);}
+            }
+        });
     }
 
     /**
