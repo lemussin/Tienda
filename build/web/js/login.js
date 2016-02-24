@@ -8,15 +8,13 @@ $("document").ready(function ()
 		{
                     var Parametros = {seleccion: "inicioSesion", nombre: ""+nombre, pass:""+pass};
                     $.ajax({
-                        async:true,url: "../LoginController",data: Parametros,type: "POST",dataType: "json",
+                        async:true,url: "LoginController",data: Parametros,type: "POST",dataType: "json",
                         success: function (obj)
                         {
                             alert("Exito "+obj);
-                            console.log(obj);
                         },
                         error:function(obj){
-                            alert("error");
-                            console.log(obj);
+                            alert("error "+obj);
                         }
                     });
 		}
