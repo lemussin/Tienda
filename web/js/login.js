@@ -12,7 +12,10 @@ $("document").ready(function ()
                     async:true,url: "LoginController",data: Parametros,type: "POST",dataType: "json",
                     success: function (obj)
                     {
-                        alert("Exito "+obj.nombre);
+                        if(obj.permiso===1)
+                            alert("Exito!! Tus datos son veridicos "+obj.nombre);
+                        else
+                            alert("Tu información es incorrecta. Intenta de nuevo");
                     },
                     error:function(obj){alert("error "+obj);}
                 });
