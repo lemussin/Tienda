@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.AsyncContext;
+import javax.servlet.http.HttpSession;
 import tienda.BLL.LoginModel;
 import tienda.Entidades.Usuario;
 
@@ -36,11 +37,17 @@ public class LoginController extends HttpServlet {
         String seleccion = request.getParameter("seleccion");
         Gson json= new Gson();
         LoginModel lm = new LoginModel();
+        HttpSession sesion = request.getSession(true);// Generamos una variable de sesion, el parametro true indica que se genera una nueva sesion
         switch(seleccion){
             case "inicioSesion":
                 String nombre = request.getParameter("nombre");
                 String pass = request.getParameter("pass");
                 Usuario usuario = lm.inicioSesion(nombre,pass);
+                if(usuario.getPermiso()==1)
+                {
+                    sesion.setMaxInactiveInterval(-1);
+                    sesion.setAttribute("Usuario", usuario);//Establecemos el nombre de la variable de sesion y el objeto que contiene sus valores
+                }
                 out.print(json.toJson(usuario));
                 break;
         }

@@ -13,7 +13,10 @@ $("document").ready(function ()
                     success: function (obj)
                     {
                         if(obj.permiso===1)
+                        {
                             alert("Exito!! Tus datos son veridicos "+obj.nombre);
+                            location.href="vistas/inicio.jsp";
+                        }
                         else
                             alert("Tu información es incorrecta. Intenta de nuevo");
                     },
