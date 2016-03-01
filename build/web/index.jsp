@@ -12,8 +12,8 @@
     <body BACKGROUND="Imagenes/Login/ImgFondo.jpg">
         <div class="container" id="loginDiv">
             <form id="btnLgn">
-                <label for="inputNombre" class="label">Nombre:</label>
-                <input type="text" id="inputNombre" class="input expantion" placeholder="prueba" required /><br/>
+                <label for="inputNombre" class="label">Usuario:</label>
+                <input type="text" id="inputNombre" class="input expantion" placeholder="Usuario" required /><br/>
                 <label for="inputPass" class="label">Password:</label><br/>
                 <input type="password" id="inputPass" class="input expantion" placeholder="Password" required /><br/>
                 <input id="inputCheck" type="checkbox" class="checkbox">

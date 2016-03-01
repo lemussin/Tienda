@@ -16,6 +16,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../Estilos/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Estilos/validaciones.css" rel="stylesheet">
         <script src="../Jquery/jquery-1.12.1.min.js"></script>
         <script src="../Estilos/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../js/inicio.js"></script>
@@ -39,7 +40,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Mi perfil</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Cerrar sesión</a></li>
+                                <li><a href="#" id="CerrarSesion">Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -133,7 +134,7 @@
                                         <mark>Usuario Administrador:</mark><span class="text-muted">Es aquel usuario que podra ingresar al administrador del sistema o modulo de cajas, por lo que podra dar de alta o modificar mercancia y registrar ventas fuera de cajas.</span><br><br>
                                         <mark>Cajero:</mark><span class="text-muted">Es aquel usuario que utilizara unicamente el modulo de cajas.</span>
                                         <br><br>
-                                        Generar el registro <button class="btn btn-info" type="button">Aquí</button>
+                                        Generar el registro <button class="btn btn-info" type="button" data-toggle="modal" data-target="#modalUsuarios">Aquí</button>
                                     </p>
                                 </div>
                                 <div class="col-md-5">
@@ -144,5 +145,68 @@
                                 <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span>Arriba</a></p>
                                 <p>© 2016 Lemus Estudios</p>
                             </footer>
+                            
+                            <!-- Modal -->
+                            <form id="formModalUsuarios">
+                                <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Registro de usuarios</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <label for="nombreUsuario">Nombre:</label>
+                                                        <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre" required>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="apellidoPUsuario">Apellido Paterno:</label>
+                                                        <input type="text" class="form-control" id="apellidoPUsuario" placeholder="Apellido Paterno" required>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="apellidoMUsuario">Apellido Materno:</label>
+                                                        <input type="text" class="form-control" id="apellidoMUsuario" placeholder="Apellido Materno" required>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <label for="usuario">Usuario:</label>
+                                                        <input type="text" class="form-control" id="usuario" placeholder="Usuario" required>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="Password">Password:</label>
+                                                        <input type="password" class="form-control" id="Password" placeholder="Password" required>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="Password2">Repetir Password:</label>
+                                                        <input type="password" class="form-control" id="Password2" placeholder="Password" required>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-group row">
+                                                    <div class="col-md-12">
+                                                        <strong>Tipo de usuario:</strong>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked> Administrador
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Cajero
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarUsuario">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
     </body>
 </html>
