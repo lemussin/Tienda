@@ -19,7 +19,7 @@ public class LoginDAL {
             DB db = mongo.getDB("TiendaRopa");
             DBCollection tabla = db.getCollection("administradores");
             BasicDBObject query = new BasicDBObject();
-            query.put("nombre", nombre);
+            query.put("usuario", nombre);
             query.put("password", pass);
             DBCursor cur = tabla.find(query);
             while (cur.hasNext()) {

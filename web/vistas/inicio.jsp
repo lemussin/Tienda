@@ -18,6 +18,7 @@
         <link href="../Estilos/css/bootstrap.min.css" rel="stylesheet">
         <link href="../Estilos/validaciones.css" rel="stylesheet">
         <script src="../Jquery/jquery-1.12.1.min.js"></script>
+        <script src="../Jquery/jquery-2.2.1.js"></script>
         <script src="../Estilos/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../js/inicio.js"></script>
         <title>Bienvenido Tienda Lemus</title>
@@ -187,15 +188,30 @@
                                                 </div>
                                                 <hr>
                                                 <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <label for="fNacimiento">Fecha de nacimiento:</label>
+                                                        <input type="date" class="form-control" id="fNacimiento" placeholder="Fecha de Nacimiento" required>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="telefono">Telefono:</label>
+                                                        <input type="text" class="form-control" id="telefono" placeholder="Telefono" required>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="email">Email:</label>
+                                                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-group row">
                                                     <div class="col-md-12">
                                                         <strong>Tipo de usuario:</strong>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label class="radio-inline">
-                                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked> Administrador
+                                                            <input type="radio" name="radioForm" id="1" value="1" checked> Administrador
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Cajero
+                                                            <input type="radio" name="radioForm" id="1" value="2"> Cajero
                                                         </label>
                                                     </div>
                                                 </div>
