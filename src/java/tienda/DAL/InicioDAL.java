@@ -39,13 +39,22 @@ public class InicioDAL
             }
             else
             {
+                double Max = 1, maxT = 1;
+                DBCursor cur3 = collection.find();
+                while (cur3.hasNext()) 
+                {
+                    maxT = (double) cur3.next().get("idAdmin");
+                    if(maxT > Max)
+                        Max = maxT;
+                }
                 BasicDBObject document = new BasicDBObject();
+                document.put("idAdmin", (Max+1));
                 document.put("nombre", nombre);
                 document.put("apellidoPaterno",apellidoP);
                 document.put("apellidoMaterno",apellidoM);
                 document.put("usuario", nombreUsuario);
                 document.put("password",password);
-                document.put("fechaNacimiento", fNacimiento);
+                document.put("fechaNac", fNacimiento);
                 document.put("telefono", telefono);
                 document.put("email",email);
                 collection.insert(document);

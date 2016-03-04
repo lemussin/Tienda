@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tienda.controladores;
 
 import com.google.gson.Gson;
@@ -15,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import tienda.Entidades.Usuario;
-import tienda.BLL.InicioModel;
 
 /**
  *
  * @author Eduardo Lemus Zavala
  */
-@WebServlet(name = "InicioController", urlPatterns = {"/InicioController"}, asyncSupported = true)
-public class InicioController extends HttpServlet {
+@WebServlet(name = "perfilController", urlPatterns = {"/perfilController"}, asyncSupported = true)
+public class perfilController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,21 +36,11 @@ public class InicioController extends HttpServlet {
         Usuario usuario= (Usuario) sesion.getAttribute("Usuario");
         PrintWriter out = response.getWriter();
         switch(seleccion){
-            case "RegistroUsuarios":
-                String nombre = request.getParameter("nombre");
-                String apellidoP = request.getParameter("apellidoP");
-                String apellidoM = request.getParameter("apellidoM");
-                String nombreUsuario = request.getParameter("usuario");
-                String password = request.getParameter("password");
-                String fNacimiento = request.getParameter("fecha");
-                String telefono = request.getParameter("telefono");
-                String email = request.getParameter("email");
-                int tipoUsuario = Integer.parseInt(request.getParameter("tipoUsuario"));
-                InicioModel im = new InicioModel();
-                int registro = im.registroUsuario(nombre, apellidoP, apellidoM, nombreUsuario, password, fNacimiento, telefono, email, tipoUsuario);
-                out.print(json.toJson(registro));
+            case "cargarDatos":
+                out.print(json.toJson(usuario));
                 break;
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

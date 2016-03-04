@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/controladores/LoginController.java</file>
-            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/BLL/LoginModel.java</file>
+            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/controladores/InicioController.java</file>
+            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/DAL/InicioDAL.java</file>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/index.jsp</file>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/DAL/LoginDAL.java</file>
-            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/js/login.js</file>
+            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/controladores/CierreSesionController.java</file>
+            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/BLL/InicioModel.java</file>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/vistas/inicio.jsp</file>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/js/inicio.js</file>
         </group>
