@@ -61,7 +61,8 @@
                 <span class="glyphicon glyphicon-user titulo" aria-hidden="true"> <%=usuario.getNombre()%> <%=usuario.getApellidoPaterno()%> <%=usuario.getApellidoMaterno()%> </span><br><br>
                 <span class="glyphicon glyphicon-calendar titulo" aria-hidden="true"> <%=usuario.getFechaNac() %></span><br><br>
                 <span class="glyphicon glyphicon-earphone titulo" aria-hidden="true"> <%= usuario.getTelefono() %> </span><br><br>
-                <span class="glyphicon glyphicon-envelope titulo" aria-hidden="true"> <%= usuario.getEmail() %> </span><br>
+                <span class="glyphicon glyphicon-envelope titulo" aria-hidden="true"> <%= usuario.getEmail() %> </span><br><br>
+                <button id="modificaInfo" type="button" class="btn btn-warning btn-lg btn-block">Modificar información</button>
             </div>
         </div>
         <div class="form-group row">
