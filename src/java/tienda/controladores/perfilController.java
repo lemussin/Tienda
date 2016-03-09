@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import tienda.Entidades.Usuario;
+import tienda.BLL.PerfilModel;
 
 /**
  *
@@ -38,6 +39,19 @@ public class perfilController extends HttpServlet {
         switch(seleccion){
             case "cargarDatos":
                 out.print(json.toJson(usuario));
+                break;
+            case "ModificaUsuarios":
+                PerfilModel pm = new PerfilModel();
+                String nombre = request.getParameter("nombre");
+                String apellidoP = request.getParameter("apellidoP");
+                String apellidoM = request.getParameter("apellidoM");
+                String nombreUsuario = request.getParameter("usuario");
+                String password = request.getParameter("password");
+                String fNacimiento = request.getParameter("fecha");
+                String telefono = request.getParameter("telefono");
+                String email = request.getParameter("email");
+                int exito = pm.RegistroUsuarios(nombre, apellidoP, apellidoM, nombreUsuario, password, fNacimiento, telefono, email, request);
+                out.print(json.toJson(exito));
                 break;
         }
         

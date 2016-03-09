@@ -2,7 +2,48 @@ $("document").ready(function(){
     cargarDatos();
     
     $("#modificaInfo").click(function(){
-        alert("bien");
+        document.getElementById("nombreUsuario").disabled=false;
+        document.getElementById("apellidoPUsuario").disabled=false;
+        document.getElementById("apellidoMUsuario").disabled=false;
+        document.getElementById("usuario").disabled=false;
+        document.getElementById("Password").disabled=false;
+        document.getElementById("Password2").disabled=false;
+        document.getElementById("fNacimiento").disabled=false;
+        document.getElementById("telefono").disabled=false;
+        document.getElementById("email").disabled=false;
+        document.getElementById("GuardarCambios").disabled=false;
+        document.getElementById("CancelarCambios").disabled=false;
+    });
+    
+    $("#formUsuario").submit(function(event){
+        event.preventDefault();
+        if($("#Password").val()===$("#Password2").val())
+        {
+            var fecha = $("#fNacimiento").val().toString();
+            var parametros = { seleccion: "ModificaUsuarios",nombre:""+$("#nombreUsuario").val(), 
+                apellidoP:""+$("#apellidoPUsuario").val(), apellidoM:""+$("#apellidoMUsuario").val(),
+                usuario:""+$("#usuario").val(),password:""+$("#Password").val(),fecha:""+fecha,
+                telefono:""+$("#telefono").val(),email:""+$("#email").val()};
+            $.ajax({
+                async:true, url:"../perfilController", data:parametros,type:"POST", dataType:"json",
+                success:function(exito){
+                    if(exito === 1)
+                    {
+                        alert("Tus datos han sido actualizados con exito");
+                        location.href="perfil.jsp";
+                    }
+                },
+                error:function(err){
+                    alert("Error en la inserción de datos "+err);
+                }
+            });
+        }
+        else
+            alert("Las contraseñas no son iguales.");
+    });
+    
+    $("#CancelarCambios").click(function(ev){
+        location.href="perfil.jsp";
     });
     
     $("#CerrarSesion").click(function()

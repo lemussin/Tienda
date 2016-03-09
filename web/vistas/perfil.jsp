@@ -65,6 +65,7 @@
                 <button id="modificaInfo" type="button" class="btn btn-warning btn-lg btn-block">Modificar información</button>
             </div>
         </div>
+        <form id="formUsuario">
         <div class="form-group row">
             <div class="col-md-4">
                 <label for="nombreUsuario">Nombre:</label>
@@ -123,5 +124,12 @@
                 </label>
             </div>
         </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-success" id="GuardarCambios" disabled>Guardar Cambios</button>
+                <button type="button" class="btn btn-danger" id="CancelarCambios" disabled>Cancelar Cambios</button>
+            </div>
+        </div>
+        </form>
     </body>
 </html>
