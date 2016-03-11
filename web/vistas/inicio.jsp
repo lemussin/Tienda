@@ -102,7 +102,7 @@
                                             <img src="../Imagenes/Inicio/mercancia.jpg" alt="Agregar Mercancia">
                                             <h3>Agregar Mercancia</h3>
                                             <p>Manten el control de tu inventario y agrega <br/>tu mercancia desde un formulario sencillo y practico</p>
-                                            <p><a href="#" class="btn btn-info" role="button">Agregar</a></p>
+                                            <p><a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalAgregarMerc">Agregar</a></p>
                                         </center>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                             <img src="../Imagenes/Inicio/Cajas.jpg" alt="Modificar Mercancia">
                                             <h3>Modificar Inventario</h3>
                                             <p>¿Hubo un error en el registro? <br/>¡No te preocupes! Puedes corregirlo aquí</p>
-                                            <p><a href="#" class="btn btn-info" role="button">Modificar</a></p>
+                                            <p><a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalModificarMerc">Modificar</a></p>
                                         </center>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                                             <img src="../Imagenes/Inicio/distribuidor1.jpg" alt="Venta de mercancia">
                                             <h3>Mercancia Vendida</h3>
                                             <p>¿Venta de mercancia fuera de caja? <br/>¡Grandioso! Registralo justo aquí</p>
-                                            <p><a href="#" class="btn btn-info" role="button">Registrar Venta</a></p>
+                                            <p><a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalVenta">Registrar Venta</a></p>
                                         </center>
                                     </div>
                                 </div>
@@ -147,7 +147,8 @@
                                 <p>© 2016 Lemus Estudios</p>
                             </footer>
                             
-                            <!-- Modal -->
+                            <!-- Inicio de modals para formularios -->
+                            <!-- Modal para registro de usuarios-->
                             <form id="formModalUsuarios">
                                 <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
@@ -219,6 +220,66 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary" id="GuardarUsuario">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Modal para agregar nuevas mercancias-->
+                            <form id="formModalAgregarMerc">
+                                <div class="modal fade" id="modalAgregarMerc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Agregar Mercancia</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarMercancia">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Modal para modificar mercancias-->
+                            <form id="formModalModificarMerc">
+                                <div class="modal fade" id="modalModificarMerc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Modificar Mercancia</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarModificarMercancia">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Modal para agregar venta fuera de caja-->
+                            <form id="formModalVenta">
+                                <div class="modal fade" id="modalVenta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Registrar venta de mercancia</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarVenta">Guardar</button>
                                             </div>
                                         </div>
                                     </div>

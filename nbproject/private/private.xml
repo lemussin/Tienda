@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/controladores/perfilController.java</file>
+            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/BLL/PerfilModel.java</file>
+            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/src/java/tienda/DAL/PerfilDAL.java</file>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/vistas/perfil.jsp</file>
             <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/js/perfil.js</file>
-            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/vistas/inicio.jsp</file>
-            <file>file:/C:/Users/Eduardo%20Lemus%20Zavala/Documents/NetBeansProjects/TiendaRopa/web/js/inicio.js</file>
         </group>
     </open-files>
 </project-private>
