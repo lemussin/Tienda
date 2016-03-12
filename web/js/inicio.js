@@ -3,6 +3,8 @@ $("document").ready(function(){
         interval: 3000
     });
     
+    cargarMercancias();
+    
     $("#formModalUsuarios").submit(function(event)
     {
         event.preventDefault();
@@ -50,3 +52,19 @@ $("document").ready(function(){
     
 });
 
+function cargarMercancias()
+{
+    var parametro = {seleccion:"cargaTipoProductos"};
+    $.ajax({
+        async:true, data:parametro, url:"../InicioController", type:"POST", dataType:"JSON",
+        success:function(productos){
+            var html;
+            for(var i=0; i<productos.length; i++)
+                html +='<option id="'+productos[i].idProducto+'">'+productos[i].nombreProducto+'</option>';
+            $("#selectTipoMercancia").html(html);
+        },
+        error:function(err){
+            alert("Error en la carga de productos "+err);
+        }
+    });
+}

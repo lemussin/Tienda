@@ -13,6 +13,7 @@
         <link href="../Estilos/css/bootstrap.min.css" rel="stylesheet">
         <link href="../Estilos/validaciones.css" rel="stylesheet">
         <link href="../Estilos/imagenes.css" rel="stylesheet">
+        <link href="../Estilos/estilosPagina.css" rel="stylesheet">
         <script src="../Jquery/jquery-1.12.1.min.js"></script>
         <script src="../Jquery/jquery-2.2.1.js"></script>
         <script src="../Estilos/js/bootstrap.min.js"></script>
@@ -20,7 +21,7 @@
         <title>Mi perfil</title>
     </head>
     <body>
-        <nav class="navbar navbar-inverse col-md-12">
+        <nav class="navbar navbar-inverse col-md-12 navBar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Tienda Lemus</a>
@@ -53,7 +54,7 @@
                                     <hr/>
                                 </div>
                             </div>
-        <div class="row jumbotron">
+        <div class="row jumbotron resaltoDatosPerfil">
             <div class="col-md-4">
                 <center><img src="../Imagenes/perfil/eduardo.jpg" alt="..." class="img-thumbnail mediana"></center>
             </div>

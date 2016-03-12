@@ -4,6 +4,9 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import com.mongodb.DBCursor;
+import java.util.ArrayList;
+import java.util.List;
+import tienda.Entidades.Producto;
 /**
  *
  * @author Eduardo Lemus Zavala
@@ -66,6 +69,34 @@ public class InicioDAL
             status = 0;
         
         return status;
+    }
+    
+    public List<Producto> cargaProductos()
+    {
+        List<Producto> listaProductos = new ArrayList<>();
+        Producto producto = null;
+        MongoClient mongo = new MongoClient("localhost",27017);
+        if(mongo!=null)
+        {
+            double prod;
+            int idProducto;
+            DB db = mongo.getDB("TiendaRopa");
+            DBCollection collection = db.getCollection("cat_tipo_producto");
+            //BasicDBObject query = new BasicDBObject();
+            DBCursor cursor = collection.find();
+            while(cursor.hasNext())
+            {
+                prod = (double) cursor.next().get("idProducto");
+                idProducto = (int) prod;
+                producto = new Producto(idProducto,cursor.curr().get("nombreProducto").toString());
+                listaProductos.add(producto);
+            }
+            mongo.close();
+        }
+        else
+            listaProductos = null;
+        
+        return listaProductos;
     }
     
 }

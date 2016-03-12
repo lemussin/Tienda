@@ -17,6 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../Estilos/css/bootstrap.min.css" rel="stylesheet">
         <link href="../Estilos/validaciones.css" rel="stylesheet">
+        <link href="../Estilos/estilosPagina.css" rel="stylesheet">
         <script src="../Jquery/jquery-1.12.1.min.js"></script>
         <script src="../Jquery/jquery-2.2.1.js"></script>
         <script src="../Estilos/js/bootstrap.min.js"></script>
@@ -24,7 +25,7 @@
         <title>Bienvenido Tienda Lemus</title>
     </head>
     <body>
-        <nav class="navbar navbar-inverse col-md-12">
+        <nav class="navbar navbar-inverse col-md-12 navBar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Tienda Lemus</a>
@@ -96,33 +97,33 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 resaltoDIV">
                                     <div class="caption">
                                         <center>
                                             <img src="../Imagenes/Inicio/mercancia.jpg" alt="Agregar Mercancia">
                                             <h3>Agregar Mercancia</h3>
                                             <p>Manten el control de tu inventario y agrega <br/>tu mercancia desde un formulario sencillo y practico</p>
-                                            <p><a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalAgregarMerc">Agregar</a></p>
+                                            <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalAgregarMerc">Agregar</a></p>
                                         </center>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 resaltoDIV">
                                     <div class="caption">
                                         <center>
                                             <img src="../Imagenes/Inicio/Cajas.jpg" alt="Modificar Mercancia">
                                             <h3>Modificar Inventario</h3>
                                             <p>¿Hubo un error en el registro? <br/>¡No te preocupes! Puedes corregirlo aquí</p>
-                                            <p><a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalModificarMerc">Modificar</a></p>
+                                            <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalModificarMerc">Modificar</a></p>
                                         </center>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 resaltoDIV">
                                     <div class="caption">
                                         <center>
                                             <img src="../Imagenes/Inicio/distribuidor1.jpg" alt="Venta de mercancia">
                                             <h3>Mercancia Vendida</h3>
                                             <p>¿Venta de mercancia fuera de caja? <br/>¡Grandioso! Registralo justo aquí</p>
-                                            <p><a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalVenta">Registrar Venta</a></p>
+                                            <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalVenta">Registrar Venta</a></p>
                                         </center>
                                     </div>
                                 </div>
@@ -235,7 +236,24 @@
                                                 <h4 class="modal-title" id="myModalLabel">Agregar Mercancia</h4>
                                             </div>
                                             <div class="modal-body">
-                                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="selectTipoMercancia">Tipo de mercancia:</label>
+                                                        <select class="form-control" id="selectTipoMercancia">
+                                                            <option id="1">Merca1</option>
+                                                            <option id="2">Merca2</option>
+                                                            <option id="3">Merca3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="selectGenero">Genero:</label>
+                                                        <select class="form-control" id="selectGenero">
+                                                            <option id="1">Femenino</option>
+                                                            <option id="2">Masculino</option>
+                                                            <option id="3">Unisex</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

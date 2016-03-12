@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tienda.controladores;
 
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import tienda.Entidades.Usuario;
+import tienda.Entidades.Producto;
 import tienda.BLL.InicioModel;
 
 /**
@@ -41,6 +38,9 @@ public class InicioController extends HttpServlet {
         HttpSession sesion = request.getSession(false);
         Usuario usuario= (Usuario) sesion.getAttribute("Usuario");
         PrintWriter out = response.getWriter();
+        
+        InicioModel im = new InicioModel();
+        
         switch(seleccion){
             case "RegistroUsuarios":
                 String nombre = request.getParameter("nombre");
@@ -52,9 +52,13 @@ public class InicioController extends HttpServlet {
                 String telefono = request.getParameter("telefono");
                 String email = request.getParameter("email");
                 int tipoUsuario = Integer.parseInt(request.getParameter("tipoUsuario"));
-                InicioModel im = new InicioModel();
                 int registro = im.registroUsuario(nombre, apellidoP, apellidoM, nombreUsuario, password, fNacimiento, telefono, email, tipoUsuario);
                 out.print(json.toJson(registro));
+                break;
+            case "cargaTipoProductos":
+                List<Producto> listaProductos = null;
+                listaProductos = im.cargaProductos();
+                out.print(json.toJson(listaProductos));
                 break;
         }
     }
