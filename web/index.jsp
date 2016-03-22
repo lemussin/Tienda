@@ -18,7 +18,7 @@
                 <input type="password" id="inputPass" class="input expantion" placeholder="Password" required /><br/>
                 <input id="inputCheck" type="checkbox" class="checkbox">
                 <label for="inputCheck" class="label">Recordar mis datos</label><br/><br/>
-                <button type="submit" class="btnLogin"> Presiona Aqui</button>
+                <button type="submit" class="btnLogin"><img src="Imagenes/Login/ingresar.png" class="imgBoton"/> Ingresar</button>
             </form>
         </div>
     </body>

@@ -1,8 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : 11/03/2016, 09:39:11 PM
     Author     : Eduardo Lemus Zavala
@@ -16,10 +11,29 @@ and open the template in the editor.
     font-size: 15px;
 }
 
+.colorTextoResaltoDiv{
+    color: #761c19;
+}
+
 .expande:hover{
     width: 130px;
 }
 
 .resaltoDatosPerfil:hover{
     color: #761c19;
+}
+
+.imgBoton{
+    width: 16px;
+    height: 16px;
+}
+
+.encabezadoModal{
+    background-color: #761c19;
+    color: #fff;
+    text-align: center;
+}
+
+.buttonModalEncabezado{
+    color: #fff;
 }

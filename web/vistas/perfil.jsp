@@ -36,9 +36,9 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= usuario.getUsuario() %> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="perfil.jsp">Mi perfil</a></li>
+                                <li class="active"><a href="perfil.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span> Mi perfil</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#" id="CerrarSesion">Cerrar sesión</a></li>
+                                <li><a href="#" id="CerrarSesion"><img src="../Imagenes/Inicio/exit-to-app.png" class="imgBoton" /> Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -127,8 +127,8 @@
         </div>
         <div class="form-group row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-success" id="GuardarCambios" disabled>Guardar Cambios</button>
-                <button type="button" class="btn btn-danger" id="CancelarCambios" disabled>Cancelar Cambios</button>
+                <button type="submit" class="btn btn-success" id="GuardarCambios" disabled><span class="glyphicon glyphicon-saved" aria-hidden="true"> </span> Guardar Cambios</button>
+                <button type="button" class="btn btn-danger" id="CancelarCambios" disabled><span class="glyphicon glyphicon-remove" aria-hidden="true"> </span> Cancelar Cambios</button>
             </div>
         </div>
         </form>

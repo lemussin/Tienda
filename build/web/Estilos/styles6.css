@@ -95,3 +95,8 @@
 .btnLogin:hover{
 	background-color: #50A150;
 }
+
+.imgBoton{
+    width: 16px;
+    height: 16px;
+}

@@ -3,6 +3,7 @@ package tienda.controladores;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import tienda.Entidades.Usuario;
 import tienda.Entidades.Producto;
+import tienda.Entidades.Marca;
+import tienda.Entidades.Color;
 import tienda.BLL.InicioModel;
+import tienda.Entidades.Mercancia;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -55,10 +60,47 @@ public class InicioController extends HttpServlet {
                 int registro = im.registroUsuario(nombre, apellidoP, apellidoM, nombreUsuario, password, fNacimiento, telefono, email, tipoUsuario);
                 out.print(json.toJson(registro));
                 break;
+            case "registrarMercancia":
+                Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                String fechaReg;
+                if((mes+1)>=10)
+                    fechaReg = año+"-"+(mes+1)+"-"+dia;
+                else
+                    fechaReg = año+"-0"+(mes+1)+"-"+dia;
+                
+                double idMercancia = Double.parseDouble(request.getParameter("tipoMercancia"));
+                double idGenero = Double.parseDouble(request.getParameter("genero"));
+                int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+                double idMarca = Double.parseDouble(request.getParameter("marca"));
+                double idColorBase = Double.parseDouble(request.getParameter("colorBase"));
+                double precio = Double.parseDouble(request.getParameter("precio"));
+                String descripcion = request.getParameter("descripcion");
+                String nombreMercancia = request.getParameter("nombreMerc");
+                int registroMercancia = im.registroMercancias(idMercancia, idGenero, cantidad, idMarca, idColorBase, precio, descripcion, fechaReg, usuario.getId(),nombreMercancia);
+                out.print(json.toJson(registroMercancia));
+                break;
             case "cargaTipoProductos":
                 List<Producto> listaProductos = null;
                 listaProductos = im.cargaProductos();
                 out.print(json.toJson(listaProductos));
+                break;
+            case "cargarMarcas":
+                List<Marca> listaMarcas = null;
+                listaMarcas = im.cargaMarcas();
+                out.print(json.toJson(listaMarcas));
+                break;
+            case "cargarColores":
+                List<Color> listaColores = null;
+                listaColores = im.cargaColores();
+                out.print(json.toJson(listaColores));
+                break;
+            case "cargaMercancias":
+                List<Mercancia> listaMercancias = null;
+                listaMercancias = im.cargaMercancias();
+                out.print(json.toJson(listaMercancias));
                 break;
         }
     }

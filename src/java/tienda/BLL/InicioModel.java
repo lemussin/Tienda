@@ -1,6 +1,9 @@
 package tienda.BLL;
 import java.util.List;
 import tienda.DAL.InicioDAL;
+import tienda.Entidades.Color;
+import tienda.Entidades.Marca;
+import tienda.Entidades.Mercancia;
 import tienda.Entidades.Producto;
 public class InicioModel {
     
@@ -14,5 +17,29 @@ public class InicioModel {
     {
         InicioDAL id = new InicioDAL();
         return id.cargaProductos();
+    }
+    
+    public List<Marca> cargaMarcas()
+    {
+        InicioDAL id = new InicioDAL();
+        return id.cargaMarcas();
+    }
+    
+    public List<Color> cargaColores()
+    {
+        InicioDAL id = new InicioDAL();
+        return id.cargaColores();
+    }
+    
+    public int registroMercancias(double idMercancia, double idGenero, int cantidad, double idMarca, double idColorBase, double precio, String descripcion, String fecha, double idUsuario, String nombreMercancia)
+    {
+        InicioDAL id = new InicioDAL();
+        return id.registroMercancias(idMercancia, idGenero, cantidad, idMarca, idColorBase, precio, descripcion, fecha, idUsuario, nombreMercancia);
+    }
+    
+    public List<Mercancia> cargaMercancias()
+    {
+        InicioDAL id = new InicioDAL();
+        return id.cargaMercancias();
     }
 }

@@ -40,9 +40,9 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= usuario.getUsuario() %> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="perfil.jsp">Mi perfil</a></li>
+                                <li><a href="perfil.jsp"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span> Mi perfil</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#" id="CerrarSesion">Cerrar sesión</a></li>
+                                <li><a href="#" id="CerrarSesion"><img src="../Imagenes/Inicio/exit-to-app.png" class="imgBoton" /> Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -100,9 +100,9 @@
                                 <div class="col-md-4 resaltoDIV">
                                     <div class="caption">
                                         <center>
+                                            <h3 class="colorTextoResaltoDiv">Agrega un producto</h3>
                                             <img src="../Imagenes/Inicio/mercancia.jpg" alt="Agregar Mercancia">
-                                            <h3>Agregar Mercancia</h3>
-                                            <p>Manten el control de tu inventario y agrega <br/>tu mercancia desde un formulario sencillo y practico</p>
+                                            <p>Manten el control de tu inventario y agrega <br/>tus productos desde un formulario sencillo y practico</p>
                                             <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalAgregarMerc">Agregar</a></p>
                                         </center>
                                     </div>
@@ -110,19 +110,19 @@
                                 <div class="col-md-4 resaltoDIV">
                                     <div class="caption">
                                         <center>
+                                            <h3 class="colorTextoResaltoDiv">Modifica un producto</h3>
                                             <img src="../Imagenes/Inicio/Cajas.jpg" alt="Modificar Mercancia">
-                                            <h3>Modificar Inventario</h3>
                                             <p>¿Hubo un error en el registro? <br/>¡No te preocupes! Puedes corregirlo aquí</p>
-                                            <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalModificarMerc">Modificar</a></p>
+                                            <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalModificarMerc" id="modificarProducto">Modificar</a></p>
                                         </center>
                                     </div>
                                 </div>
                                 <div class="col-md-4 resaltoDIV">
                                     <div class="caption">
                                         <center>
+                                            <h3 class="colorTextoResaltoDiv">Ventas</h3>
                                             <img src="../Imagenes/Inicio/distribuidor1.jpg" alt="Venta de mercancia">
-                                            <h3>Mercancia Vendida</h3>
-                                            <p>¿Venta de mercancia fuera de caja? <br/>¡Grandioso! Registralo justo aquí</p>
+                                            <p>¿Ventas fuera de caja? <br/>¡Grandioso! Registralas justo aquí</p>
                                             <p><a href="#" class="btn btn-info expande" role="button" data-toggle="modal" data-target="#modalVenta">Registrar Venta</a></p>
                                         </center>
                                     </div>
@@ -131,7 +131,7 @@
                             <hr/>
                             <div class="row featurette">
                                 <div class="col-md-7">
-                                    <h2 class="featurette-heading"><br/>Registro de usuarios</h2>
+                                    <h2 class="featurette-heading colorTextoResaltoDiv"><br/>Registro de usuarios</h2>
                                     <p class="lead">En este apartado podras registrar usuarios administradores o cajeros.<br><br>
                                         <mark>Usuario Administrador:</mark><span class="text-muted">Es aquel usuario que podra ingresar al administrador del sistema o modulo de cajas, por lo que podra dar de alta o modificar mercancia y registrar ventas fuera de cajas.</span><br><br>
                                         <mark>Cajero:</mark><span class="text-muted">Es aquel usuario que utilizara unicamente el modulo de cajas.</span>
@@ -154,8 +154,8 @@
                                 <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <div class="modal-header encabezadoModal">
+                                                <button type="button" class="close buttonModalEncabezado" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h4 class="modal-title" id="myModalLabel">Registro de usuarios</h4>
                                             </div>
                                             <div class="modal-body">
@@ -220,7 +220,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary" id="GuardarUsuario">Guardar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarUsuario"><img src="../Imagenes/Inicio/add_user.png" class="imgBoton"> Guardar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -231,33 +231,67 @@
                                 <div class="modal fade" id="modalAgregarMerc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Agregar Mercancia</h4>
+                                            <div class="modal-header encabezadoModal">
+                                                <button type="button" class="close buttonModalEncabezado" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Agregar producto</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="selectTipoMercancia">Tipo de mercancia:</label>
+                                                    <div class="col-md-4">
+                                                        <label for="selectTipoMercancia">Tipo:</label>
                                                         <select class="form-control" id="selectTipoMercancia">
-                                                            <option id="1">Merca1</option>
-                                                            <option id="2">Merca2</option>
-                                                            <option id="3">Merca3</option>
+
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <label for="selectGenero">Genero:</label>
                                                         <select class="form-control" id="selectGenero">
-                                                            <option id="1">Femenino</option>
-                                                            <option id="2">Masculino</option>
-                                                            <option id="3">Unisex</option>
+                                                            <option id="Femenino" value="1">Femenino</option>
+                                                            <option id="Masculino" value="2">Masculino</option>
+                                                            <option id="Unisex" value="3">Unisex</option>
                                                         </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="inputCantidad">Cantidad:</label>
+                                                        <input type="number" class="form-control" id="inputCantidad" placeholder="Cantidad" required />
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="selectMarca">Marca:</label>
+                                                        <select class="form-control" id="selectMarca">
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectColor">Color base:</label>
+                                                        <select class="form-control" id="selectColor">
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="inputPrecio">Precio:</label>
+                                                        <input type="number" class="form-control" id="inputPrecio" placeholder="$$$" required />
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="descripcion">Descripción del producto:</label>
+                                                        <textarea class="form-control" rows="3" id="descripcion" placeholder="Descripción del producto" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p><strong>NOTA:</strong> El identificador del producto se generara automaticamente con los datos ingresados. </p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary" id="GuardarMercancia">Guardar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarMercancia"><img src="../Imagenes/Inicio/mercancia.png" class="imgBoton" /> Guardar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -268,16 +302,23 @@
                                 <div class="modal fade" id="modalModificarMerc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Modificar Mercancia</h4>
+                                            <div class="modal-header encabezadoModal">
+                                                <button type="button" class="close buttonModalEncabezado" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Modificar producto</h4>
                                             </div>
                                             <div class="modal-body">
-                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="selectProductoMod">Selecciona un producto:</label>
+                                                        <select class="form-control" id="selectProductoMod">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary" id="GuardarModificarMercancia">Guardar</button>
+                                                <button type="submit" class="btn btn-primary" id="GuardarModificarMercancia" disabled><span class="glyphicon glyphicon-saved" aria-hidden="true"> </span> Guardar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -288,9 +329,9 @@
                                 <div class="modal fade" id="modalVenta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Registrar venta de mercancia</h4>
+                                            <div class="modal-header encabezadoModal">
+                                                <button type="button" class="close buttonModalEncabezado" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Registrar venta</h4>
                                             </div>
                                             <div class="modal-body">
                                                 

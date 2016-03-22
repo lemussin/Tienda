@@ -38,6 +38,52 @@ $("document").ready(function(){
             alert("Las contraseñas no son iguales.");
     });
     
+    $("#formModalAgregarMerc").submit(function(event){
+        event.preventDefault();
+        var mercancia = document.getElementById("selectTipoMercancia")[$("#selectTipoMercancia").val()-1].id;
+        var sexo = document.getElementById("selectGenero")[$("#selectGenero").val()-1].id;
+        var marcaP = document.getElementById("selectMarca")[$("#selectMarca").val()-1].id;
+        var color = document.getElementById("selectColor")[$("#selectColor").val()-1].id;
+        var nombreMercancia = mercancia +" "+sexo+" "+" "+color+" marca "+marcaP;
+        var parametros={seleccion:"registrarMercancia",tipoMercancia:""+$("#selectTipoMercancia").val(),genero:""+$("#selectGenero").val(),
+        cantidad:""+$("#inputCantidad").val(),marca:""+$("#selectMarca").val(),colorBase:""+$("#selectColor").val(),
+        precio:""+$("#inputPrecio").val(),descripcion:""+$("#descripcion").val(),nombreMerc:""+nombreMercancia};
+       $.ajax({
+            async:true, url:"../InicioController", data:parametros, type:"POST", dataType:"json",
+            success:function(exito){
+                alert("La mercancia fue registrada exitosamente");
+            },
+            error:function(err){
+                alert("Hubo un error en el registro de la mercancia "+err);
+            }
+        });
+    });
+    
+    $("#modificarProducto").click(function(){
+        var parametros ={seleccion:"cargaMercancias"};
+        $.ajax({
+            async:true,url:"../InicioController",type:"POST",dataType:"json", data:parametros,
+            success:function(mercancia){
+                var html = '<option id="seleccionaProdMod" value="0">Selecciona un producto</option>';
+                for(var i=0; i<mercancia.length; i++)
+                    html += '<option id="'+mercancia[i].nombreMercancia+'" value="'+mercancia[i].idMercanciaRegistrada+'">'+mercancia[i].nombreMercancia+'</option>';
+                $("#selectProductoMod").html(html);
+            },
+            error:function(err){
+                alert("Error en la carga de productos "+err);
+            }
+        });
+    });
+    
+    $("#selectProductoMod").change(function(){
+        if($("#selectProductoMod").val()!=="0")
+        {
+            $("#GuardarModificarMercancia").attr("disabled",false);
+        }
+        else
+            $("#GuardarModificarMercancia").attr("disabled",true);
+    });
+    
     $("#CerrarSesion").click(function()
     {
         var Parametros = {seleccion: "CerrarSesion"};
@@ -58,13 +104,45 @@ function cargarMercancias()
     $.ajax({
         async:true, data:parametro, url:"../InicioController", type:"POST", dataType:"JSON",
         success:function(productos){
-            var html;
+            var html="";
             for(var i=0; i<productos.length; i++)
-                html +='<option id="'+productos[i].idProducto+'">'+productos[i].nombreProducto+'</option>';
+                html +='<option id="'+productos[i].nombreProducto+'" value="'+productos[i].idProducto+'" >'+productos[i].nombreProducto+'</option>';
             $("#selectTipoMercancia").html(html);
+            cargarMarcas();
         },
         error:function(err){
             alert("Error en la carga de productos "+err);
         }
+    });
+}
+
+function cargarMarcas()
+{
+    var parametros ={seleccion:"cargarMarcas"};
+    $.ajax({
+        async:true, url:"../InicioController", data:parametros, type:"POST", dataType:"JSON",
+        success:function(marca){
+            var html="";
+            for(var i=0; i<marca.length; i++)
+                html +='<option id="'+marca[i].nombreMarca+'" value="'+marca[i].idMarca+'" >'+marca[i].nombreMarca+'</option>';
+            $("#selectMarca").html(html);
+            cargarColores();
+        },
+        error:function(err){alert("Error en la carga de Marcas "+err);}
+    });
+}
+
+function cargarColores()
+{
+    var parametros ={seleccion:"cargarColores"};
+    $.ajax({
+        async:true, url:"../InicioController", data:parametros, type:"POST", dataType:"JSON",
+        success:function(colores){
+            var html="";
+            for(var i=0; i<colores.length; i++)
+                html +='<option id="'+colores[i].color+'" value="'+colores[i].idColor+'" >'+colores[i].color+'</option>';
+            $("#selectColor").html(html);
+        },
+        error:function(err){alert("Error en la carga de Marcas "+err);}
     });
 }
