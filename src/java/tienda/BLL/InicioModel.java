@@ -42,4 +42,16 @@ public class InicioModel {
         InicioDAL id = new InicioDAL();
         return id.cargaMercancias();
     }
+    
+    public Mercancia cargaProductoModificar(double idProdMod)
+    {
+        InicioDAL id = new InicioDAL();
+        return id.cargaProductoModificar(idProdMod);
+    }
+    
+    public int modificaMercancias(double idMercancia, double idGenero, int cantidad, double idMarca, double idColorBase, double precio, String descripcion, String fecha, double idUsuario, String nombreMercancia, double mercanciaModificar)
+    {
+        InicioDAL id = new InicioDAL();
+        return id.modificaMercancias(idMercancia, idGenero, cantidad, idMarca, idColorBase, precio, descripcion, fecha, idUsuario, nombreMercancia, mercanciaModificar);
+    }
 }

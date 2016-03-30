@@ -290,7 +290,8 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <input type="reset" value="Borrar" id="resetRegistrarMercancia" hidden="true">
+                                                <button type="button" class="btn btn-default" id="CerrarGuardarMercancia" data-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary" id="GuardarMercancia"><img src="../Imagenes/Inicio/mercancia.png" class="imgBoton" /> Guardar</button>
                                             </div>
                                         </div>
@@ -315,9 +316,57 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="selectTipoMercanciaMod">Tipo:</label>
+                                                        <select class="form-control" id="selectTipoMercanciaMod" disabled>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectGeneroMod">Genero:</label>
+                                                        <select class="form-control" id="selectGeneroMod" disabled>
+                                                            <option id="Femenino" value="1">Femenino</option>
+                                                            <option id="Masculino" value="2">Masculino</option>
+                                                            <option id="Unisex" value="3">Unisex</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="inputCantidadMod">Cantidad:</label>
+                                                        <input type="number" class="form-control" id="inputCantidadMod" placeholder="Cantidad" required disabled />
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="selectMarcaMod">Marca:</label>
+                                                        <select class="form-control" id="selectMarcaMod" disabled>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectColorMod">Color base:</label>
+                                                        <select class="form-control" id="selectColorMod" disabled>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="inputPrecioMod">Precio:</label>
+                                                        <input type="number" class="form-control" id="inputPrecioMod" placeholder="$$$" required disabled />
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="descripcionMod">Descripción del producto:</label>
+                                                        <textarea class="form-control" rows="3" id="descripcionMod" placeholder="Descripción del producto" required disabled></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <input type="reset" value="Borrar" id="resetModificarMercancia" hidden="true">
+                                                <button type="button" class="btn btn-default" id="btnCerrarModificarMercancia" data-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary" id="GuardarModificarMercancia" disabled><span class="glyphicon glyphicon-saved" aria-hidden="true"> </span> Guardar</button>
                                             </div>
                                         </div>

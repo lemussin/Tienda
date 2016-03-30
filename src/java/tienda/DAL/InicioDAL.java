@@ -240,4 +240,104 @@ public class InicioDAL
         
         return listaMercancias;
     }
+    
+    public Mercancia cargaProductoModificar(double idProdMod)
+    {
+        Mercancia mercancia = null;
+        MongoClient mongo =  new MongoClient("localhost", 27017);
+        if(mongo!=null)
+        {
+            double mercanciaReg;
+            int idmercanciaReg;
+            double idsMercancia;
+            int idMercancia;
+            double idsGenero;
+            int idGenero;
+            double marka;
+            int idMarca;
+            double colour;
+            int idColorBase;
+            int cantidad;
+            DB db = mongo.getDB("TiendaRopa");
+            DBCollection collection;
+            collection = db.getCollection("tbl_mercancia_registrada");
+            BasicDBObject query = new BasicDBObject();
+            query.put("idMercanciaRegistrada", idProdMod);
+            DBCursor cursor = collection.find(query);
+            while (cursor.hasNext()) 
+            {
+                 mercanciaReg = (double) cursor.next().get("idMercanciaRegistrada");
+                idmercanciaReg = (int) mercanciaReg;
+                idsMercancia = (double) cursor.curr().get("idMercancia");
+                idMercancia = (int) idsMercancia;
+                idsGenero = (double) cursor.curr().get("idGenero");
+                idGenero = (int) idsGenero;
+                marka = (double) cursor.curr().get("idMarca");
+                idMarca = (int) marka;
+                colour = (double) cursor.curr().get("idColorBase");
+                idColorBase = (int) colour;
+                cantidad = (int)cursor.curr().get("cantidad");
+                mercancia = new Mercancia(idmercanciaReg,idMercancia,idGenero,cursor.curr().get("nombreMercancia").toString(),cantidad,idMarca,idColorBase,(double)cursor.curr().get("precio"),cursor.curr().get("descripcion").toString(),cursor.curr().get("fechaRegistro").toString(),(double)cursor.curr().get("usuarioRegistro"));
+            }
+        }
+        else
+            mercancia = null;
+        
+        return mercancia;
+    }
+    
+    public int modificaMercancias(double idMercancia, double idGenero, int cantidad, double idMarca, double idColorBase, double precio, String descripcion, String fecha, double idUsuario, String nombreMercancia, double mercanciaModificar)
+    {
+        int status = 0, existeMercancia = 0;
+        MongoClient mongo =  new MongoClient("localhost", 27017);
+        if(mongo!=null)
+        {
+            DB db = mongo.getDB("TiendaRopa");
+            DBCollection collection;
+            collection = db.getCollection("tbl_mercancia_registrada");
+            BasicDBObject actualiza = new BasicDBObject();
+            BasicDBObject searchById = new BasicDBObject();
+            searchById.append("idMercanciaRegistrada", mercanciaModificar);
+            
+            actualiza.append("$set", new BasicDBObject().append("idMercancia", idMercancia));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("idGenero", idGenero));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("nombreMercancia", nombreMercancia));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("cantidad", cantidad));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("idMarca", idMarca));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("idColorBase", idColorBase));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("precio", precio));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            actualiza.append("$set", new BasicDBObject().append("descripcion", descripcion));
+            collection.updateMulti(searchById, actualiza);
+            actualiza = new BasicDBObject();
+            
+            mongo.close();
+            
+            status = 1;
+        }
+        else
+            status = 0;
+        
+        return status;
+    }
 }

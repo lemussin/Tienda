@@ -102,6 +102,35 @@ public class InicioController extends HttpServlet {
                 listaMercancias = im.cargaMercancias();
                 out.print(json.toJson(listaMercancias));
                 break;
+            case "cargaProductoModificar":
+                Mercancia mercancia = null;
+                double idProdMod = Double.parseDouble(request.getParameter("idMercancia"));
+                mercancia = im.cargaProductoModificar(idProdMod);
+                out.print(json.toJson(mercancia));
+                break;
+            case "ModificarMercancia":
+                Calendar fechaMod = new GregorianCalendar();
+                int añoMod = fechaMod.get(Calendar.YEAR);
+                int mesMod = fechaMod.get(Calendar.MONTH);
+                int diaMod = fechaMod.get(Calendar.DAY_OF_MONTH);
+                String fechaRegMod;
+                if((mesMod+1)>=10)
+                    fechaRegMod = añoMod+"-"+(mesMod+1)+"-"+diaMod;
+                else
+                    fechaRegMod = añoMod+"-0"+(mesMod+1)+"-"+diaMod;
+                
+                double idMercanciaMod = Double.parseDouble(request.getParameter("tipoMercancia"));
+                double idGeneroMod = Double.parseDouble(request.getParameter("genero"));
+                int cantidadMod = Integer.parseInt(request.getParameter("cantidad"));
+                double idMarcaMod = Double.parseDouble(request.getParameter("marca"));
+                double idColorBaseMod = Double.parseDouble(request.getParameter("colorBase"));
+                double precioMod = Double.parseDouble(request.getParameter("precio"));
+                String descripcionMod = request.getParameter("descripcion");
+                String nombreMercanciaMod = request.getParameter("nombreMerc");
+                double mercanciaModificar = Double.parseDouble(request.getParameter("mercanciaModificar"));
+                int modificaMercancia = im.modificaMercancias(idMercanciaMod, idGeneroMod, cantidadMod, idMarcaMod, idColorBaseMod, precioMod, descripcionMod, fechaRegMod, usuario.getId(),nombreMercanciaMod, mercanciaModificar);
+                out.print(json.toJson(modificaMercancia));
+                break;
         }
     }
 
